@@ -10,7 +10,7 @@ old way:
 describe MyClass do
   let(:some_instance_var) { FactoryGirl.create(:my_class) }
   
-  it 'shoiuld return the expected output' do
+  it 'should return the expected output' do
     some_instance_var.method_1('foo', 'bar').should == 'baz'
     some_instance_var.method_1('foo', 'baz').should == 'bar'
     some_instance_var.method_1('bar', 'baz').should == 'foo'
