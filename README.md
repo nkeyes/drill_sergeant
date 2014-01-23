@@ -29,6 +29,7 @@ describe MyModule::MyClass do
     some_instance_var.method_1('foo', 'baz').should == 'bar'
     some_instance_var.method_1('bar', 'baz').should == 'foo'
     some_instance_var.method_1('foo', 'bar', 'baz').should == ''
+    expect { some_instance_var.method_1('not_foo') }.to raise_error(SomeError)
   end
 end
 ```
@@ -42,6 +43,7 @@ describe MyModule::MyClass do
     with { ['foo', 'baz'] }.expect('bar')
     with('bar', 'baz').expect { 'foo' }
     with('foo', 'bar', 'baz').expect('')
+    with('not_foo').expect_error(SomeError)
   end
 end
 ```
