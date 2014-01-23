@@ -1,4 +1,4 @@
 drill_sergeant
 ==============
 
-A small gem to make lightweight unit tests easier to write
+A small gem to make lightweight unit tests easier to write in RSpec
