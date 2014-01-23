@@ -3,11 +3,25 @@ drill_sergeant
 
 A potential gem to make lightweight unit tests easier to write in RSpec
 
+Spawned from the idea of wanting to do something like:
+```ruby
+test_this = {
+   MyModule::MyClass => {
+       method_1: [
+           { args: ['foo', 'bar'], expect: 'baz' },
+           { args: ['foo', 'baz'], expect: 'bar' },
+           { args: ['bar', 'baz'], expect: 'foo' },
+       ]
+
+   }
+}
+```
+
 
 ## Examples
 old way:
 ```ruby
-describe MyClass do
+describe MyModule::MyClass do
   let(:some_instance_var) { FactoryGirl.create(:my_class) }
   
   it 'should return the expected output' do
@@ -20,7 +34,7 @@ end
 ```
 with Drill Sergeant:
 ```ruby
-describe MyClass do
+describe MyModule::MyClass do
   let(:some_instance_var) { FactoryGirl.create(:my_class) }
   
   drill some_instance_var, :method_1 do
